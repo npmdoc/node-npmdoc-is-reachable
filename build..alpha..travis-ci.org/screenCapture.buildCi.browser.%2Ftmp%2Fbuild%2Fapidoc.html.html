@@ -1,0 +1,238 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/sindresorhus/is-reachable#readme">is-reachable (v2.3.2)</a>
+</h1>
+<h4>Check if servers are reachable</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.is-reachable">module is-reachable</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.is-reachable.is-reachable">
+            function <span class="apidocSignatureSpan"></span>is-reachable
+            <span class="apidocSignatureSpan">(dests, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.is-reachable.browser">
+            function <span class="apidocSignatureSpan">is-reachable.</span>browser
+            <span class="apidocSignatureSpan">(arrify(hosts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.is-reachable.toString">
+            function <span class="apidocSignatureSpan">is-reachable.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.is-reachable.browser">module is-reachable.browser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.is-reachable.browser.browser">
+            function <span class="apidocSignatureSpan">is-reachable.</span>browser
+            <span class="apidocSignatureSpan">(arrify(hosts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.is-reachable.toString">module is-reachable.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.is-reachable.toString.toString">
+            function <span class="apidocSignatureSpan">is-reachable.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.is-reachable" id="apidoc.module.is-reachable">module is-reachable</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.is-reachable.is-reachable" id="apidoc.element.is-reachable.is-reachable">
+        function <span class="apidocSignatureSpan"></span>is-reachable
+        <span class="apidocSignatureSpan">(dests, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(dests, opts) =&gt; {
+	opts = opts || {};
+	opts.timeout = typeof opts.timeout === 'number' ? opts.timeout : 5000;
+
+	const p = pAny(arrify(dests).map(isTargetReachable));
+	return pTimeout(p, opts.timeout).catch(() =&gt; false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.is-reachable.browser" id="apidoc.element.is-reachable.browser">
+        function <span class="apidocSignatureSpan">is-reachable.</span>browser
+        <span class="apidocSignatureSpan">(arrify(hosts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hosts =&gt; {
+	return pAny(arrify(hosts).map(url =&gt; {
+		return new Promise(resolve =&gt; {
+			url = new URL(prependHttp(url));
+
+			const hostname = url.hostname;
+			const protocol = url.protocol || '';
+			const port = url.port ? `:${url.port}` : '';
+
+			const img = new Image();
+			img.onload = () =&gt; resolve(true);
+			img.onerror = () =&gt; resolve(false);
+			img.src = `${protocol}//${hostname}${port}/favicon.ico?${Date.now()}`;
+		});
+	}));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.is-reachable.toString" id="apidoc.element.is-reachable.toString">
+        function <span class="apidocSignatureSpan">is-reachable.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.is-reachable.browser" id="apidoc.module.is-reachable.browser">module is-reachable.browser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.is-reachable.browser.browser" id="apidoc.element.is-reachable.browser.browser">
+        function <span class="apidocSignatureSpan">is-reachable.</span>browser
+        <span class="apidocSignatureSpan">(arrify(hosts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hosts =&gt; {
+	return pAny(arrify(hosts).map(url =&gt; {
+		return new Promise(resolve =&gt; {
+			url = new URL(prependHttp(url));
+
+			const hostname = url.hostname;
+			const protocol = url.protocol || '';
+			const port = url.port ? `:${url.port}` : '';
+
+			const img = new Image();
+			img.onload = () =&gt; resolve(true);
+			img.onerror = () =&gt; resolve(false);
+			img.src = `${protocol}//${hostname}${port}/favicon.ico?${Date.now()}`;
+		});
+	}));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.is-reachable.toString" id="apidoc.module.is-reachable.toString">module is-reachable.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.is-reachable.toString.toString" id="apidoc.element.is-reachable.toString.toString">
+        function <span class="apidocSignatureSpan">is-reachable.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
