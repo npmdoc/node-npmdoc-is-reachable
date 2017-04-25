@@ -1,4 +1,7 @@
-# api documentation for  [is-reachable (v2.3.2)](https://github.com/sindresorhus/is-reachable#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-is-reachable.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-is-reachable) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-is-reachable.svg)](https://travis-ci.org/npmdoc/node-npmdoc-is-reachable)
+# npmdoc-is-reachable
+
+#### basic api documentation for  [is-reachable (v2.3.2)](https://github.com/sindresorhus/is-reachable#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-is-reachable.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-is-reachable) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-is-reachable.svg)](https://travis-ci.org/npmdoc/node-npmdoc-is-reachable)
+
 #### Check if servers are reachable
 
 [![NPM](https://nodei.co/npm/is-reachable.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/is-reachable)
@@ -102,7 +105,8 @@
     "version": "2.3.2",
     "xo": {
         "esnext": true
-    }
+    },
+    "bin": {}
 }
 ```
 
