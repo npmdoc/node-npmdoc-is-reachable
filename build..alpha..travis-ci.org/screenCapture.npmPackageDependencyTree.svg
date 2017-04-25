@@ -27,7 +27,7 @@
 <tspan x="10" y="394">  │     └── indent-string@3.1.0 </tspan>
 <tspan x="10" y="410">  ├── p-timeout@1.0.0 </tspan>
 <tspan x="10" y="426">  ├── pify@2.3.0 </tspan>
-<tspan x="10" y="442">  ├── port-numbers@1.2.3 </tspan>
+<tspan x="10" y="442">  ├── port-numbers@1.2.4 </tspan>
 <tspan x="10" y="458">  ├── prepend-http@1.0.4 </tspan>
 <tspan x="10" y="474">  ├── router-ips@1.0.0 </tspan>
 <tspan x="10" y="490">  └─┬ url-parse@1.1.8 </tspan>
